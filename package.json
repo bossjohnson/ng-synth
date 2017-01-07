@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Boss Johnson's Angular Synthesizer",
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp": "^3.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
-    "jshint": "^2.9.4"
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
