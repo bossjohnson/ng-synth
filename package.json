@@ -1,0 +1,34 @@
+{
+  "name": "bjsynth",
+  "version": "1.0.0",
+  "description": "Boss Johnson's Angular Synthesizer",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bossjohnson/ng-synth.git"
+  },
+  "keywords": [
+    "synth",
+    "synthesizer",
+    "angular",
+    "boss",
+    "johnson"
+  ],
+  "author": "Josh Newsom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bossjohnson/ng-synth/issues"
+  },
+  "homepage": "https://github.com/bossjohnson/ng-synth#readme"
+}
