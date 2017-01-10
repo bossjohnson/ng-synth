@@ -1,0 +1,10 @@
+white-key {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  display: inline-block;
+  height: 200px;
+  margin: 0;
+  width: 100px; }

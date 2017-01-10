@@ -1,39 +1,40 @@
 {
-    "name": "bjsynth",
-    "version": "1.0.0",
-    "description": "Boss Johnson's Angular Synthesizer",
-    "main": "gulpfile.js",
-    "dependencies": {
-        "express": "~4.13.1",
-        "body-parser": "^1.15.2"
-    },
-    "devDependencies": {
-        "gulp": "^3.9.1",
-        "gulp-concat": "^2.6.1",
-        "gulp-inject": "^4.2.0",
-        "gulp-jshint": "^2.0.4",
-        "jshint": "^2.9.4",
-        "jshint-stylish": "^2.2.1"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "gulp & node ./server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/bossjohnson/ng-synth.git"
-    },
-    "keywords": [
-        "synth",
-        "synthesizer",
-        "angular",
-        "boss",
-        "johnson"
-    ],
-    "author": "Josh Newsom",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/bossjohnson/ng-synth/issues"
-    },
-    "homepage": "https://github.com/bossjohnson/ng-synth#readme"
+  "name": "bjsynth",
+  "version": "1.0.0",
+  "description": "Boss Johnson's Angular Synthesizer",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "express": "~4.13.1",
+    "body-parser": "^1.15.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-inject": "^4.2.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sass": "^3.0.0",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp & node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bossjohnson/ng-synth.git"
+  },
+  "keywords": [
+    "synth",
+    "synthesizer",
+    "angular",
+    "boss",
+    "johnson"
+  ],
+  "author": "Josh Newsom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bossjohnson/ng-synth/issues"
+  },
+  "homepage": "https://github.com/bossjohnson/ng-synth#readme"
 }

@@ -1,16 +1,22 @@
 var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   concat = require('gulp-concat'),
-  inject = require('gulp-inject');
+  inject = require('gulp-inject'),
+  sass = require('gulp-sass');
 
 gulp.task('default', [
   'lint-client',
   'inject',
-  'watch-js'
+  'watch-js',
+  'sass',
+  'sass-watch'
 ]);
 
 gulp.task('lint-client', function() {
-  return gulp.src(__dirname + '/client/**/*.js')
+  return gulp.src([
+    __dirname + '/client/**/*.js',
+    '!' + __dirname + '/client/public/**'
+  ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -29,7 +35,7 @@ gulp.task('watch-js', function() {
     __dirname + '/client/**/*.js',
     '!' + __dirname + '/client/dist/**'
   ], [
-    'lint-client',
+    'lint-client'
   ]);
 });
 
@@ -45,4 +51,21 @@ gulp.task('inject', function() {
       ignorePath: '/client'
     }))
     .pipe(gulp.dest(__dirname + '/client'));
+});
+
+gulp.task('sass', function() {
+  return gulp.src([
+      __dirname + '/**/*.scss',
+      '!' + __dirname + '/node_modules/**'
+    ])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('.'));
+});
+
+gulp.task('sass-watch', function() {
+  return gulp.watch([
+    __dirname + '/**/*.scss'
+  ], [
+    'sass'
+  ]);
 });
