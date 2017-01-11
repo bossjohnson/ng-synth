@@ -5,7 +5,8 @@
       controller: 'KeyController',
       controllerAs: 'vm',
       bindings: {
-        color: '@'
+        color: '@',
+        note: '='
       }
     });
 }());

@@ -9,7 +9,8 @@
   margin: 0;
   width: 100px; }
   .white-key:hover {
-    background-color: #d1d1d1; }
+    background-color: #d1d1d1;
+    cursor: pointer; }
 
 .black-key {
   background-color: #000;
@@ -24,4 +25,5 @@
   transform: translateX(-27px);
   width: 50px; }
   .black-key:hover {
-    background-color: #d1d1d1; }
+    background-color: #d1d1d1;
+    cursor: pointer; }

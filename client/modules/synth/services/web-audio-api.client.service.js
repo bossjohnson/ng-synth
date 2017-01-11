@@ -16,9 +16,19 @@
 
     // hoisted functions
     function newOscillator(note) {
-      var osc = context.createOscillator();
+      var osc = context.createOscillator(),
+        gain = context.createGain();
+
+      gain.gain.value = 0;
+
+      osc.gainNode = gain;
       osc.frequency.value = Pitch.getFreq(note);
-      osc.connect(context.destination);
+
+      osc.connect(gain);
+      gain.connect(context.destination);
+
+      osc.start();
+
       return osc;
     }
   }

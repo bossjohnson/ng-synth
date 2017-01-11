@@ -1,4 +1,4 @@
-<key id="{{note}}" class="white-key" ng-repeat="note in vm.whiteKeys" ng-click="vm.play(note)" color="white">
+<key id="{{note}}" class="white-key" ng-repeat="note in vm.whiteKeys" ng-mousedown="vm.play(note)" color="white" note="note">
 </key>
-<key id="{{note}}" class="black-key" ng-repeat="note in vm.blackKeys" ng-click="vm.play(note)" color="black">
+<key id="{{note}}" class="black-key" ng-repeat="note in vm.blackKeys" ng-mousedown="vm.play(note)" color="black" note="note">
 </key>

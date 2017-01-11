@@ -27,7 +27,16 @@
 
     function play(note) {
       var osc = WebAudioAPI.newOscillator(note);
-      osc.start();
+      osc.gainNode.gain.value = 1;
+
+      $scope.$on('stop', function (ev, stopNote) {
+        if (note === stopNote) {
+          osc.gainNode.gain.value = 0;
+        }
+      });
+      // $timeout(function() {
+      //   osc.gainNode.gain.value = 0;
+      // }, 500);
     }
 
   }
