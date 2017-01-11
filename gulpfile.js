@@ -2,21 +2,23 @@ var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   concat = require('gulp-concat'),
   inject = require('gulp-inject'),
-  sass = require('gulp-sass');
+  sass = require('gulp-sass'),
+  sassLint = require('gulp-sass-lint');
 
 gulp.task('default', [
   'lint-client',
   'inject',
   'watch-js',
   'sass',
-  'sass-watch'
+  'sass-watch',
+  'sass-lint'
 ]);
 
 gulp.task('lint-client', function() {
   return gulp.src([
-    __dirname + '/client/**/*.js',
-    '!' + __dirname + '/client/public/**'
-  ])
+      __dirname + '/client/**/*.js',
+      '!' + __dirname + '/client/public/**'
+    ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -56,7 +58,8 @@ gulp.task('inject', function() {
 gulp.task('sass', function() {
   return gulp.src([
       __dirname + '/**/*.scss',
-      '!' + __dirname + '/node_modules/**'
+      '!' + __dirname + '/node_modules/**',
+      '!**/variables.scss'
     ])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('.'));
@@ -66,6 +69,16 @@ gulp.task('sass-watch', function() {
   return gulp.watch([
     __dirname + '/**/*.scss'
   ], [
-    'sass'
+    'sass',
+    'sass-lint'
   ]);
+});
+
+gulp.task('sass-lint', function() {
+  return gulp.src([
+      __dirname + '/**/*.scss',
+      '!' + __dirname + '/node_modules/**'
+    ])
+    .pipe(sassLint())
+    .pipe(sassLint.format());
 });

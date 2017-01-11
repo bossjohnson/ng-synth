@@ -1,11 +1,35 @@
-white-key {
+@import '../../../../variables';
+
+.white-key {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  border-color: black;
-  border-width: 2px;
+  border-color: $black;
   border-style: solid;
+  border-width: 2px;
   display: inline-block;
   height: 200px;
   margin: 0;
   width: 100px;
+
+  &:hover {
+    background-color: $key-hover;
+  }
+}
+
+.black-key {
+  background-color: $black;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-color: $black;
+  border-style: solid;
+  border-width: 2px;
+  display: inline-block;
+  height: 125px;
+  position: absolute;
+  transform: translateX(-27px);
+  width: 50px;
+
+  &:hover {
+    background-color: $key-hover;
+  }
 }

@@ -1,10 +1,27 @@
-white-key {
+.white-key {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  border-color: black;
-  border-width: 2px;
+  border-color: #000;
   border-style: solid;
+  border-width: 2px;
   display: inline-block;
   height: 200px;
   margin: 0;
   width: 100px; }
+  .white-key:hover {
+    background-color: #d1d1d1; }
+
+.black-key {
+  background-color: #000;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-color: #000;
+  border-style: solid;
+  border-width: 2px;
+  display: inline-block;
+  height: 125px;
+  position: absolute;
+  transform: translateX(-27px);
+  width: 50px; }
+  .black-key:hover {
+    background-color: #d1d1d1; }
