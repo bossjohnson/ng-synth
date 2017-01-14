@@ -3,7 +3,9 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   inject = require('gulp-inject'),
   sass = require('gulp-sass'),
-  sassLint = require('gulp-sass-lint');
+  sassLint = require('gulp-sass-lint'),
+  postcss = require('gulp-postcss'),
+  autoprefixer = require('autoprefixer');
 
 gulp.task('default', [
   'lint-client',
@@ -11,7 +13,8 @@ gulp.task('default', [
   'watch-js',
   'sass',
   'sass-watch',
-  'sass-lint'
+  'sass-lint',
+  'autoprefixer'
 ]);
 
 gulp.task('lint-client', function() {
@@ -59,7 +62,8 @@ gulp.task('sass', function() {
   return gulp.src([
       __dirname + '/**/*.scss',
       '!' + __dirname + '/node_modules/**',
-      '!**/variables.scss'
+      '!**/variables.scss',
+      '!**/mixins.scss'
     ])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('.'));
@@ -77,8 +81,15 @@ gulp.task('sass-watch', function() {
 gulp.task('sass-lint', function() {
   return gulp.src([
       __dirname + '/**/*.scss',
-      '!' + __dirname + '/node_modules/**'
+      '!' + __dirname + '/node_modules/**',
+      '!**/mixins.scss'
     ])
     .pipe(sassLint())
     .pipe(sassLint.format());
+});
+
+gulp.task('autoprefixer', function() {
+  return gulp.src('**/*.css')
+    .pipe(postcss([autoprefixer()]))
+    .pipe(gulp.dest('.'));
 });

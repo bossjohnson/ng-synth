@@ -2,14 +2,31 @@
   angular.module('Synth')
     .controller('KeyController', KeyController);
 
-  KeyController.$inject = ['$scope', '$element', '$timeout'];
+  KeyController.$inject = ['$scope', '$element', '$timeout', 'Mouse'];
 
-  function KeyController($scope, $element, $timeout) {
+  function KeyController($scope, $element, $timeout, Mouse) {
     var vm = this;
 
-    $element.on('mouseup', stopNote);
+    $element.on('mousedown', function() {
+      Mouse.down = true;
+      document.addEventListener('mouseup', function mouseUp() {
+        stopNote();
+        Mouse.down = false;
+        document.removeEventListener('mouseup', mouseUp);
+      });
+    });
+
     $element.on('mouseleave', stopNote);
     $element.on('drag', stopNote);
+    $element.on('mouseup', stopNote);
+
+    $element.on('mouseenter', function () {
+      $element.addClass('hover-key');
+    });
+
+    $element.on('mouseleave', function () {
+      $element.removeClass('hover-key');
+    });
 
     $timeout(function() {
       if (vm.color === 'white') return;

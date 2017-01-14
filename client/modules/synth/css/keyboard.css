@@ -7,10 +7,8 @@
   display: inline-block;
   height: 200px;
   margin: 0;
+  user-select: none;
   width: 100px; }
-  .white-key:hover {
-    background-color: #d1d1d1;
-    cursor: pointer; }
 
 .black-key {
   background-color: #000;
@@ -23,7 +21,9 @@
   height: 125px;
   position: absolute;
   transform: translateX(-27px);
+  user-select: none;
   width: 50px; }
-  .black-key:hover {
-    background-color: #d1d1d1;
-    cursor: pointer; }
+
+.hover-key {
+  background-color: #d1d1d1;
+  cursor: pointer; }

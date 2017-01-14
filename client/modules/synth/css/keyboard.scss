@@ -1,4 +1,5 @@
 @import '../../../../variables';
+@import '../../../../mixins';
 
 .white-key {
   border-bottom-left-radius: 8px;
@@ -9,12 +10,8 @@
   display: inline-block;
   height: 200px;
   margin: 0;
+  user-select: none;
   width: 100px;
-
-  &:hover {
-    background-color: $key-hover;
-    cursor: pointer;
-  }
 }
 
 .black-key {
@@ -28,10 +25,11 @@
   height: 125px;
   position: absolute;
   transform: translateX(-27px);
+  user-select: none;
   width: 50px;
+}
 
-  &:hover {
-    background-color: $key-hover;
-    cursor: pointer;
-  }
+.hover-key {
+  background-color: $key-hover;
+  cursor: pointer;
 }
