@@ -1,3 +1,3 @@
 (function() {
-  angular.module('App', ['Synth']);
+  angular.module('App', ['Synth', 'WaveShape', 'ngMaterial']);
 }());

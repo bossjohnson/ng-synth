@@ -1,0 +1,5 @@
+<md-radio-group ng-model="vm.selectedShape" class="md-primary" ng-change="vm.changeWaveShape()">
+  <md-radio-button ng-repeat="shape in vm.shapes" value="{{shape}}">
+    {{shape}}
+  </md-radio-button>
+</md-radio-group>

@@ -13,8 +13,7 @@ gulp.task('default', [
   'watch-js',
   'sass',
   'sass-watch',
-  'sass-lint',
-  'autoprefixer'
+  'sass-lint'
 ]);
 
 gulp.task('lint-client', function() {
@@ -89,7 +88,7 @@ gulp.task('sass-lint', function() {
 });
 
 gulp.task('autoprefixer', function() {
-  return gulp.src('**/*.css')
+  return gulp.src(__dirname + '/**/*.css')
     .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest('.'));
 });

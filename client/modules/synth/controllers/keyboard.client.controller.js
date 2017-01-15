@@ -26,13 +26,14 @@
       return note.indexOf('#') > -1;
     });
 
+    // hoisted functions
     function play(note) {
       var osc = WebAudioAPI.newOscillator(note);
       osc.gainNode.gain.value = 1;
 
       $scope.$on('stop', function(ev, stopNote) {
         if (note === stopNote) {
-          osc.gainNode.gain.value = 0;
+          osc.gainNode.gain.linearRampToValueAtTime(0, context.currentTime + 1);
         }
       });
     }

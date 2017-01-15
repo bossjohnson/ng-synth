@@ -20,11 +20,11 @@
     $element.on('drag', stopNote);
     $element.on('mouseup', stopNote);
 
-    $element.on('mouseenter', function () {
+    $element.on('mouseenter', function() {
       $element.addClass('hover-key');
     });
 
-    $element.on('mouseleave', function () {
+    $element.on('mouseleave', function() {
       $element.removeClass('hover-key');
     });
 
