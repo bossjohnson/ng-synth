@@ -29,15 +29,16 @@
     // hoisted functions
     function play(note) {
       var osc = WebAudioAPI.newOscillator(note),
-        attack = AttackDecayService.attack / 1000,
-        decay = AttackDecayService.decay / 1000;
+        attack = AttackDecayService.attack,
+        decay = AttackDecayService.decay;
 
-      osc.gainNode.gain.linearRampToValueAtTime(1, context.currentTime + attack);
-
-      $scope.$on('stop', function(ev, stopNote) {
+      osc.gainNode.gain.linearRampToValueAtTime(1, context.currentTime + attack / 1000);
+      var removeStopHandler = $scope.$on('stop', function(ev, stopNote) {
         if (note === stopNote) {
-          osc.gainNode.gain.linearRampToValueAtTime(0, context.currentTime + decay);
+          osc.gainNode.gain.cancelScheduledValues(context.currentTime - (attack / 1000));
+          osc.gainNode.gain.linearRampToValueAtTime(0, context.currentTime + (decay / 1000));
         }
+        removeStopHandler();
       });
     }
 
