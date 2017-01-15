@@ -9,11 +9,12 @@ var gulp = require('gulp'),
 
 gulp.task('default', [
   'lint-client',
-  'inject',
   'watch-js',
   'sass',
   'sass-watch',
-  'sass-lint'
+  'sass-lint',
+  'autoprefixer',
+  'inject'
 ]);
 
 gulp.task('lint-client', function() {
@@ -43,7 +44,7 @@ gulp.task('watch-js', function() {
   ]);
 });
 
-gulp.task('inject', function() {
+gulp.task('inject', ['autoprefixer'], function() {
   var target = gulp.src(__dirname + '/client/index.html'),
     sources = gulp.src([
       __dirname + '/client/**/*.js',
@@ -73,7 +74,8 @@ gulp.task('sass-watch', function() {
     __dirname + '/**/*.scss'
   ], [
     'sass',
-    'sass-lint'
+    'sass-lint',
+    'autoprefixer'
   ]);
 });
 
@@ -87,7 +89,7 @@ gulp.task('sass-lint', function() {
     .pipe(sassLint.format());
 });
 
-gulp.task('autoprefixer', function() {
+gulp.task('autoprefixer', ['sass'], function() {
   return gulp.src(__dirname + '/**/*.css')
     .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest('.'));

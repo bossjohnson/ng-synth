@@ -1,5 +1,11 @@
-<md-radio-group ng-model="vm.selectedShape" class="md-primary" ng-change="vm.changeWaveShape()">
-  <md-radio-button ng-repeat="shape in vm.shapes" value="{{shape}}">
-    {{shape}}
-  </md-radio-button>
-</md-radio-group>
+<section class="wave-shape-section">
+  <h4>Wave Shape</h4>
+  <md-divider></md-divider>
+  <br>
+  <md-radio-group ng-model="vm.selectedShape" class="md-primary" ng-change="vm.changeWaveShape()">
+    <md-radio-button ng-repeat="shape in vm.shapes" value="{{shape}}" aria-label="{{shape}}">
+      <md-tooltip md-direction="right">{{shape}}</md-tooltip>
+      <img class="wave-shape-img" ng-src="/modules/wave-shape/img/{{shape}}.png" alt="{{shape}}">
+    </md-radio-button>
+  </md-radio-group>
+</section>
