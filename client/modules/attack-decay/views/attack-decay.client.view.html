@@ -1,0 +1,25 @@
+<section class="wave-shape-section">
+
+  <h4>Attack</h4>
+  <md-divider></md-divider>
+  <br>
+  <md-slider-container>
+    <md-slider flex class="md-primary" min="0" max="1000" ng-model="vm.params.attack"
+        ng-change="vm.updateParams()" aria-label="attack"></md-slider>
+      <md-input-container>
+        <input flex type="number" ng-model="vm.params.attack" aria-label="attack">
+      </md-input-container>
+  </md-slider-container>
+
+  <h4>Decay</h4>
+  <md-divider></md-divider>
+  <br>
+  <md-slider-container>
+    <md-slider flex class="md-primary" min="0" max="1000" ng-model="vm.params.decay"
+        ng-change="vm.updateParams()" aria-label="decay"></md-slider>
+      <md-input-container>
+        <input flex type="number" ng-model="vm.params.decay" aria-label="decay">
+      </md-input-container>
+  </md-slider-container>
+
+</section>

@@ -1,5 +1,5 @@
 (function() {
-  angular.module('Synth')
+  angular.module('Keyboard')
     .factory('WebAudioAPI', WebAudioAPI);
 
   WebAudioAPI.$inject = ['Pitch', 'WaveShapes'];

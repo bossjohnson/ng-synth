@@ -1,5 +1,5 @@
 (function() {
-  angular.module('Synth')
+  angular.module('Keyboard')
     .controller('KeyController', KeyController);
 
   KeyController.$inject = ['$scope', '$element', '$timeout', 'Mouse'];

@@ -6,7 +6,7 @@
   <title>Angular Synthesizer 2.0</title>
   <!-- inject:css -->
   <link rel="stylesheet" href="/modules/core/css/core.css">
-  <link rel="stylesheet" href="/modules/synth/css/keyboard.css">
+  <link rel="stylesheet" href="/modules/keyboard/css/keyboard.css">
   <link rel="stylesheet" href="/modules/wave-shape/css/wave-shape.css">
   <!-- endinject -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js"></script>
@@ -18,22 +18,29 @@
 </head>
 
 <body>
-  <wave-shape-select></wave-shape-select>
+  <section class="synth-params" layout="row">
+    <wave-shape-select></wave-shape-select>
+    <attack-decay></attack-decay>
+  </section>
   <br>
   <keyboard></keyboard>
 
   <!-- inject:js -->
+  <script src="/modules/attack-decay/attack-decay.client.module.js"></script>
   <script src="/modules/core/app.client.module.js"></script>
-  <script src="/modules/synth/synth.client.module.js"></script>
+  <script src="/modules/keyboard/synth.client.module.js"></script>
   <script src="/modules/wave-shape/wave-shape.client.module.js"></script>
   <script src="/public/assets/modernizr/modernizr.js"></script>
-  <script src="/modules/synth/controllers/key.client.controller.js"></script>
-  <script src="/modules/synth/controllers/keyboard.client.controller.js"></script>
-  <script src="/modules/synth/components/key.client.component.js"></script>
-  <script src="/modules/synth/components/keyboard.client.component.js"></script>
-  <script src="/modules/synth/services/mouse.client.service.js"></script>
-  <script src="/modules/synth/services/pitch.client.service.js"></script>
-  <script src="/modules/synth/services/web-audio-api.client.service.js"></script>
+  <script src="/modules/attack-decay/components/attack-decay.client.component.js"></script>
+  <script src="/modules/attack-decay/controllers/attack-decay.client.controller.js"></script>
+  <script src="/modules/attack-decay/services/attack-decay.client.service.js"></script>
+  <script src="/modules/keyboard/components/key.client.component.js"></script>
+  <script src="/modules/keyboard/components/keyboard.client.component.js"></script>
+  <script src="/modules/keyboard/controllers/key.client.controller.js"></script>
+  <script src="/modules/keyboard/controllers/keyboard.client.controller.js"></script>
+  <script src="/modules/keyboard/services/mouse.client.service.js"></script>
+  <script src="/modules/keyboard/services/pitch.client.service.js"></script>
+  <script src="/modules/keyboard/services/web-audio-api.client.service.js"></script>
   <script src="/modules/wave-shape/components/wave-shape.client.component.js"></script>
   <script src="/modules/wave-shape/controllers/wave-shape.client.controller.js"></script>
   <script src="/modules/wave-shape/services/wave-shape.client.service.js"></script>

@@ -1,7 +1,7 @@
 (function() {
-  angular.module('Synth')
+  angular.module('Keyboard')
     .component('keyboard', {
-      templateUrl: 'modules/synth/views/keyboard.client.view.html',
+      templateUrl: 'modules/keyboard/views/keyboard.client.view.html',
       controller: 'KeyboardController',
       controllerAs: 'vm'
     });

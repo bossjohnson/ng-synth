@@ -1,5 +1,5 @@
 (function() {
-  angular.module('Synth')
+  angular.module('Keyboard')
     .factory('Pitch', Pitch);
 
   function Pitch() {

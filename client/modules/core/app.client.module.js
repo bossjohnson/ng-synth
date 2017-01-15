@@ -1,3 +1,8 @@
 (function() {
-  angular.module('App', ['Synth', 'WaveShape', 'ngMaterial']);
+  angular.module('App', [
+    'Keyboard',
+    'WaveShape',
+    'AttackDecay',
+    'ngMaterial'
+  ]);
 }());
