@@ -2,16 +2,13 @@
   angular.module('Keyboard')
     .controller('KeyboardController', KeyboardController);
 
-  KeyboardController.$inject = ['$scope', '$timeout', '$element', 'WebAudioAPI', 'AttackDecayService', 'KeyboardRange', 'Pitch', 'Mouse'];
+  KeyboardController.$inject = ['$scope', '$timeout', 'WebAudioAPI', 'AttackDecayService', 'Keyboard', 'Pitch', 'Mouse'];
 
-  function KeyboardController($scope, $timeout, $element, WebAudioAPI, AttackDecayService, KeyboardRange, Pitch, Mouse) {
+  function KeyboardController($scope, $timeout, WebAudioAPI, AttackDecayService, Keyboard, Pitch, Mouse) {
     var vm = this,
-      audio = WebAudioAPI,
-      context = audio.context,
-      bottom = KeyboardRange.bottom,
-      top = KeyboardRange.top;
+      context = WebAudioAPI.context;
 
-    vm.keys = KeyboardRange.getKeys(bottom, top);
+    vm.keys = Keyboard.keys;
     vm.play = play;
     vm.playIfMouseDown = playIfMouseDown;
 
