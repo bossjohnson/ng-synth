@@ -2,9 +2,9 @@
   angular.module('Keyboard')
     .controller('KeyboardController', KeyboardController);
 
-  KeyboardController.$inject = ['$scope', '$timeout', 'WebAudioAPI', 'AttackDecayService', 'KeyboardRange', 'Pitch', 'Mouse'];
+  KeyboardController.$inject = ['$scope', '$timeout', '$element', 'WebAudioAPI', 'AttackDecayService', 'KeyboardRange', 'Pitch', 'Mouse'];
 
-  function KeyboardController($scope, $timeout, WebAudioAPI, AttackDecayService, KeyboardRange, Pitch, Mouse) {
+  function KeyboardController($scope, $timeout, $element, WebAudioAPI, AttackDecayService, KeyboardRange, Pitch, Mouse) {
     var vm = this,
       audio = WebAudioAPI,
       context = audio.context,
@@ -14,6 +14,15 @@
     vm.keys = KeyboardRange.getKeys(bottom, top);
     vm.play = play;
     vm.playIfMouseDown = playIfMouseDown;
+
+    $scope.$on('scrollToKey', function(ev, note) {
+      $timeout(function() {
+        var target = document.getElementById(note),
+          keybaord = document.getElementById('keyboard'),
+          offset = target.offsetLeft;
+        keyboard.scrollLeft = offset;
+      });
+    });
 
     // hoisted functions
     function play(note) {

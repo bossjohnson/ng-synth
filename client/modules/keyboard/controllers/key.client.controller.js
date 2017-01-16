@@ -40,5 +40,11 @@
     function stopNote() {
       $scope.$emit('stop', vm.note);
     }
+
+    vm.$onInit = function () {
+      if (vm.note === 'c4') {
+        $scope.$emit('scrollToKey', vm.note);
+      }
+    };
   }
 }());
