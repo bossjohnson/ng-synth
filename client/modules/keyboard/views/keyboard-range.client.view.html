@@ -1,0 +1,29 @@
+<section class="param-control-section">
+
+  <h4>Keyboard Range</h4>
+  <md-divider></md-divider>
+  <br>
+
+  <md-slider-container>
+    <span>Bottom Note</span>
+    <md-slider aria-label="bottom note" ng-model="vm.range.bottom" min="0" max="107"></md-slider>
+  </md-slider-container>
+
+  <md-slider-container>
+    <span>Octaves</span>
+    <md-slider aria-label="octaves" ng-model="vm.range.octaves"></md-slider>
+  </md-slider-container>
+
+  <!-- <md-slider-container>
+    <span ng-bind="vm.notes.bottom"></span>
+    <md-slider class="md-primary" aria-label="bottom note" ng-model="vm.range.bottom"
+        ng-change="vm.update()" min="0" max="{{vm.range.top}}"></md-slider>
+  </md-slider-container>
+
+  <md-slider-container>
+    <span ng-bind="vm.notes.top"></span>
+    <md-slider class="md-primary" aria-label="top note" ng-model="vm.range.top" ng-change="vm.update()"
+        min="{{vm.range.bottom}}" max="107"></md-slider>
+  </md-slider-container> -->
+
+</section>

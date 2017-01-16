@@ -1,6 +1,12 @@
 @import '../../../../variables';
 @import '../../../../mixins';
 
+.keyboard {
+  overflow-x: scroll;
+  white-space: nowrap;
+  position: relative;
+}
+
 .white-key {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
