@@ -3,6 +3,7 @@
     'Keyboard',
     'WaveShape',
     'AttackDecay',
+    'Delay',
     'ngMaterial'
   ]);
 }());

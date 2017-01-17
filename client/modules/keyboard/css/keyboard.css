@@ -38,7 +38,7 @@
   width: 50px;
   z-index: 1; }
   .black-key .note-name {
-    color: white; }
+    color: #fff; }
 
 .hover-key {
   background-color: #d1d1d1;

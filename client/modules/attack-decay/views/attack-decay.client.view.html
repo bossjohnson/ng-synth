@@ -3,6 +3,7 @@
   <h4>Attack (ms)</h4>
   <md-divider></md-divider>
   <br>
+
   <md-slider-container>
     <md-slider flex class="md-primary" min="0" max="5000" ng-model="vm.params.attack"
         ng-change="vm.updateParams()" aria-label="attack"></md-slider>
@@ -11,9 +12,11 @@
       </md-input-container>
   </md-slider-container>
 
+
   <h4>Decay (ms)</h4>
   <md-divider></md-divider>
   <br>
+
   <md-slider-container>
     <md-slider flex class="md-primary" min="0" max="5000" ng-model="vm.params.decay"
         ng-change="vm.updateParams()" aria-label="decay"></md-slider>

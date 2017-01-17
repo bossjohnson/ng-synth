@@ -1,0 +1,52 @@
+<section class="param-control-section">
+
+  <h4>Delay</h4>
+  <md-divider></md-divider>
+  <br>
+
+  <h5>Feedback</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.feedback" min="0" max="1" step=".01" aria-label="feedback" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.feedback" aria-label="feedback">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+  <h5>Delay Time (ms)</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.delayTime" min="1" max="10000" aria-label="delay time" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.delayTime" aria-label="delay time">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+  <h5>Wet Level</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.wetLevel" min="0" max="1" step=".01" aria-label="wet level" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.wetLevel" aria-label="wet level">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+  <h5>Dry Level</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.dryLevel" min="0" max="1" step=".01" aria-label="dry level" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.dryLevel" aria-label="dry level">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+  <h5>Cutoff</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.cutoff" min="20" max="22050" aria-label="cutoff" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.cutoff" aria-label="cutoff">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+</section>

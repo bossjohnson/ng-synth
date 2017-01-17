@@ -2,12 +2,13 @@
   angular.module('Keyboard')
     .factory('WebAudioAPI', WebAudioAPI);
 
-  WebAudioAPI.$inject = ['Pitch', 'WaveShapes'];
+  WebAudioAPI.$inject = ['Pitch', 'WaveShapes', 'Delay'];
 
-  function WebAudioAPI(Pitch, WaveShapes) {
+  function WebAudioAPI(Pitch, WaveShapes, Delay) {
     var service = {},
       audioContext = window.AudioContext || window.webkitAudioContext,
-      context = new audioContext();
+      context = new audioContext(),
+      tuna = new Tuna(context);
 
     service.context = context;
     service.newOscillator = newOscillator;
@@ -17,7 +18,8 @@
     // hoisted functions
     function newOscillator(note) {
       var osc = context.createOscillator(),
-        gain = context.createGain();
+        gain = context.createGain(),
+        delay = new tuna.Delay(Delay.params);
 
       gain.gain.value = 0;
 
@@ -26,7 +28,8 @@
       osc.frequency.value = Pitch.getFreq(note);
 
       osc.connect(gain);
-      gain.connect(context.destination);
+      gain.connect(delay);
+      delay.connect(context.destination);
 
       osc.start();
 
