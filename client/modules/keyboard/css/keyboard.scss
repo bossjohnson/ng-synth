@@ -16,6 +16,7 @@
   display: inline-block;
   height: 200px;
   margin: 0;
+  position: relative;
   user-select: none;
   width: 100px;
 }
@@ -33,9 +34,21 @@
   transform: translateX(-27px);
   user-select: none;
   width: 50px;
+  z-index: 1;
+
+  .note-name {
+    color: white;
+  }
 }
 
 .hover-key {
   background-color: $key-hover;
   cursor: pointer;
+}
+
+.note-name {
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }

@@ -12,6 +12,7 @@
   display: inline-block;
   height: 200px;
   margin: 0;
+  position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -34,8 +35,17 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 50px; }
+  width: 50px;
+  z-index: 1; }
+  .black-key .note-name {
+    color: white; }
 
 .hover-key {
   background-color: #d1d1d1;
   cursor: pointer; }
+
+.note-name {
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%; }
