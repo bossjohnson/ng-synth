@@ -2,20 +2,21 @@
   angular.module('Delay')
     .controller('DelayController', DelayController);
 
-  DelayController.$inject = ['$scope', 'Delay'];
+  DelayController.$inject = ['$scope', 'Delay', 'WebAudioAPI'];
 
-  function DelayController($scope, Delay) {
+  function DelayController($scope, Delay, WebAudioAPI) {
     var vm = this;
 
     vm.params = Delay.params;
 
-    vm.updateParams = updateParams;
+    vm.updateParams = function () {
+      WebAudioAPI.updateParams('delay', vm.params);
+    };
+
 
     // hoisted functions
-    function updateParams() {
-      Delay.params = vm.params;
-    }
-
-
+    // function updateParams() {
+    //   Delay.params = vm.params;
+    // }
   }
 }());

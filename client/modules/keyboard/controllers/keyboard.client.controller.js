@@ -9,8 +9,6 @@
       context = WebAudioAPI.context;
 
     vm.keys = Keyboard.keys;
-    vm.view = {};
-    vm.view.showNoteNames = true;
     vm.play = play;
     vm.playIfMouseDown = playIfMouseDown;
 

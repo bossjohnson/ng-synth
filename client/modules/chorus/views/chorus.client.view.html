@@ -1,0 +1,37 @@
+<section class="param-control-section">
+
+  <div layout="row">
+    <md-checkbox class="md-primary" ng-model="vm.params.bypass" ng-true-value="0" ng-false-value="1" ng-change="vm.updateParams()" aria-label="bypass delay"></md-checkbox>
+    <h4>Chorus</h4>
+  </div>
+  <md-divider></md-divider>
+  <br>
+
+  <h5>Rate</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.rate" min="0.01" max="8" step=".1" aria-label="rate" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.rate" aria-label="rate">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+  <h5>Feedback</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.feedback" min="0" max="1" step=".01" aria-label="feedback" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.feedback" aria-label="feedback">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+  <h5>Delay</h5>
+  <md-slider-container>
+    <md-slider class="md-primary" ng-model="vm.params.delay" min="0" max="1" step=".01" aria-label="delay" ng-change="vm.updateParams()"></md-slider>
+    <md-input-container>
+      <input ng-model="vm.params.delay" aria-label="delay">
+    </md-input-container>
+  </md-slider-container>
+  <md-divider></md-divider>
+
+</section>

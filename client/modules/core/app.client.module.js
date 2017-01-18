@@ -4,6 +4,7 @@
     'WaveShape',
     'AttackDecay',
     'Delay',
+    'Chorus',
     'ngMaterial'
   ]);
 }());
