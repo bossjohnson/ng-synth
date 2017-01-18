@@ -10,7 +10,8 @@
       delayTime: 150,
       wetLevel: 0.25,
       dryLevel: 1,
-      cutoff: 2000
+      cutoff: 2000,
+      bypass: 0
     };
 
     return service;

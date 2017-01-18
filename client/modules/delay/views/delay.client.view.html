@@ -1,6 +1,9 @@
 <section class="param-control-section">
 
-  <h4>Delay</h4>
+  <div layout="row">
+    <md-checkbox class="md-primary" ng-model="vm.params.bypass" ng-true-value="0" ng-false-value="1" ng-change="vm.updateParams()" aria-label="bypass delay"></md-checkbox>
+    <h4>Delay</h4>
+  </div>
   <md-divider></md-divider>
   <br>
 

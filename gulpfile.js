@@ -8,7 +8,6 @@ var gulp = require('gulp'),
   autoprefixer = require('autoprefixer'),
   minify = require('gulp-minify'),
   cleanCSS = require('gulp-clean-css'),
-  flatten = require('gulp-flatten'),
   fs = require('fs');
 
 gulp.task('default', [
@@ -114,7 +113,6 @@ gulp.task('css-production', function() {
       '!**/mixins.scss'
     ])
     .pipe(sass().on('error', sass.logError))
-    .pipe(flatten())
     .pipe(postcss([autoprefixer()]))
     .pipe(concat('all.css'))
     .pipe(cleanCSS())
@@ -135,11 +133,13 @@ gulp.task('inject-production', ['js-production', 'css-production'], function() {
   fs.unlink(__dirname + '/client/dist/all.js');
   var target = gulp.src(__dirname + '/client/index.html'),
     sources = gulp.src([
-      __dirname + '/dist/all-min.js',
-      __dirname + '/dist/all.css'
+      __dirname + '/client/dist/all-min.js',
+      __dirname + '/client/dist/all.css'
     ], {
       read: false
     });
-  return target.pipe(inject(sources))
+  return target.pipe(inject(sources, {
+      ignorePath: '/client'
+    }))
     .pipe(gulp.dest(__dirname + '/client'));
 });
