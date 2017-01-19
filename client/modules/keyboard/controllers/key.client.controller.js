@@ -28,6 +28,10 @@
       $element.removeClass('hover-key');
     });
 
+    $element.on('touchstart', function (ev) {
+      ev.preventDefault();
+    });
+
     $timeout(function() {
       if (vm.color === 'white') return;
       var naturalName = $element[0].id.replace('#', ''),
