@@ -7,6 +7,7 @@
   function KeyController($scope, $element, $timeout, Mouse) {
     var vm = this;
 
+    // Click Handlers
     $element.on('mousedown', function() {
       Mouse.down = true;
       document.addEventListener('mouseup', function mouseUp() {
@@ -28,14 +29,21 @@
       $element.removeClass('hover-key');
     });
 
+    // Touch Handlers
     $element.on('touchstart', function (ev) {
-      // window.alert('TOUCH');
       ev.preventDefault();
+      $element.addClass('hover-key');
+      vm.keyboard.play(vm.note);
     });
 
     $element.on('touchmove', function (ev) {
-      // window.alert('TOUCH MOVE');
       ev.preventDefault();
+    });
+
+    $element.on('touchend', function (ev) {
+      ev.preventDefault();
+      $element.removeClass('hover-key');
+      stopNote();
     });
 
     $timeout(function() {
@@ -51,8 +59,11 @@
       if (vm.note === 'c4') {
         $scope.$emit('scrollToKey', vm.note);
       }
+      console.log('vm.keyboard:', vm.keyboard);
+
     };
 
+    // hoisted functions
     function stopNote() {
       $scope.$emit('stop', vm.note);
     }
