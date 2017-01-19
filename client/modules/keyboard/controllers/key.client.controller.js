@@ -29,6 +29,12 @@
     });
 
     $element.on('touchstart', function (ev) {
+      // window.alert('TOUCH');
+      ev.preventDefault();
+    });
+
+    $element.on('touchmove', function (ev) {
+      // window.alert('TOUCH MOVE');
       ev.preventDefault();
     });
 
