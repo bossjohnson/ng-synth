@@ -58,7 +58,6 @@
 
       $element.css('transition', decay / 1000 + 's');
       $element.css('background-color', vm.color === 'white' ? 'white' : 'black');
-      // $element.removeClass('play-key');
 
       $timeout(function() {
         $element.css('transition', '0s');
@@ -73,7 +72,6 @@
 
       $element.css('transition', attack / 1000 + 's');
       $element.css('background-color', randomColor());
-      // $element.addClass('play-key');
 
       osc.gainNode.gain.linearRampToValueAtTime(1, context.currentTime + attack / 1000);
 

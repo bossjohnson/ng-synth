@@ -7,9 +7,6 @@
       bindings: {
         color: '@',
         note: '='
-      },
-      require: {
-        keyboard: '^keyboard'
       }
     });
 }());
