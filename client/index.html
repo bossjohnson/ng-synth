@@ -19,7 +19,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tunajs/1.0.0/tuna-min.js"></script>
 
   <!-- inject:css -->
-  <link rel="stylesheet" href="/dist/all.css">
+  <link rel="stylesheet" href="/modules/core/css/core.css">
+  <link rel="stylesheet" href="/modules/wave-shape/css/wave-shape.css">
+  <link rel="stylesheet" href="/modules/keyboard/css/keyboard.css">
   <!-- endinject -->
 </head>
 
@@ -34,7 +36,33 @@
   <keyboard></keyboard>
 
   <!-- inject:js -->
-  <script src="/dist/all-min.js"></script>
+  <script src="/modules/chorus/chorus.client.module.js"></script>
+  <script src="/modules/core/app.client.module.js"></script>
+  <script src="/modules/attack-decay/attack-decay.client.module.js"></script>
+  <script src="/modules/delay/delay.client.module.js"></script>
+  <script src="/modules/wave-shape/wave-shape.client.module.js"></script>
+  <script src="/modules/keyboard/keyboard.client.module.js"></script>
+  <script src="/modules/chorus/components/chorus.client.component.js"></script>
+  <script src="/modules/chorus/controllers/chorus.client.controller.js"></script>
+  <script src="/modules/chorus/services/chorus.client.service.js"></script>
+  <script src="/modules/attack-decay/controllers/attack-decay.client.controller.js"></script>
+  <script src="/modules/attack-decay/components/attack-decay.client.component.js"></script>
+  <script src="/modules/attack-decay/services/attack-decay.client.service.js"></script>
+  <script src="/modules/attack-decay/directives/ms.client.directive.js"></script>
+  <script src="/modules/delay/components/delay.client.component.js"></script>
+  <script src="/modules/delay/controllers/delay.client.controller.js"></script>
+  <script src="/modules/delay/services/delay.client.service.js"></script>
+  <script src="/modules/wave-shape/components/wave-shape.client.component.js"></script>
+  <script src="/modules/wave-shape/controllers/wave-shape.client.controller.js"></script>
+  <script src="/modules/wave-shape/services/wave-shape.client.service.js"></script>
+  <script src="/modules/keyboard/components/key.client.component.js"></script>
+  <script src="/modules/keyboard/components/keyboard.client.component.js"></script>
+  <script src="/modules/keyboard/controllers/key.client.controller.js"></script>
+  <script src="/modules/keyboard/controllers/keyboard.client.controller.js"></script>
+  <script src="/modules/keyboard/services/keyboard.client.service.js"></script>
+  <script src="/modules/keyboard/services/mouse.client.service.js"></script>
+  <script src="/modules/keyboard/services/pitch.client.service.js"></script>
+  <script src="/modules/keyboard/services/web-audio-api.client.service.js"></script>
   <!-- endinject -->
 </body>
 

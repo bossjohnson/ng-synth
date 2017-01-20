@@ -2,12 +2,14 @@
   angular.module('Keyboard')
     .controller('KeyController', KeyController);
 
-  KeyController.$inject = ['$scope', '$element', '$timeout', 'Mouse'];
+  KeyController.$inject = ['$scope', '$element', '$timeout', 'Mouse', 'AttackDecayService'];
 
-  function KeyController($scope, $element, $timeout, Mouse) {
+  function KeyController($scope, $element, $timeout, Mouse, AttackDecayService) {
     var vm = this;
 
+    // *************
     // Click Handlers
+    // *************
     $element.on('mousedown', function() {
       Mouse.down = true;
       document.addEventListener('mouseup', function mouseUp() {
@@ -29,20 +31,28 @@
       $element.removeClass('hover-key');
     });
 
+    // **************
     // Touch Handlers
-    $element.on('touchstart', function (ev) {
+    // **************
+    $element.on('touchstart', function(ev) {
       ev.preventDefault();
-      $element.addClass('hover-key');
+      $element.css('transition', AttackDecayService.attack / 1000 + 's');
+      $element.addClass('play-key');
       vm.keyboard.play(vm.note);
     });
 
-    $element.on('touchmove', function (ev) {
+    $element.on('touchmove', function(ev) {
       ev.preventDefault();
     });
 
-    $element.on('touchend', function (ev) {
+    $element.on('touchend', function(ev) {
       ev.preventDefault();
-      $element.removeClass('hover-key');
+      $element.css('transition', AttackDecayService.decay / 1000 + 's');
+
+      $timeout(function() {
+        $element.css('transition', '0s');
+      }, AttackDecayService.decay);
+      $element.removeClass('play-key');
       stopNote();
     });
 
@@ -55,12 +65,10 @@
       whiteKey.after($element);
     });
 
-    vm.$onInit = function () {
+    vm.$onInit = function() {
       if (vm.note === 'c4') {
         $scope.$emit('scrollToKey', vm.note);
       }
-      console.log('vm.keyboard:', vm.keyboard);
-
     };
 
     // hoisted functions

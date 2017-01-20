@@ -22,7 +22,7 @@
     });
 
     // hoisted functions
-    function play(note) {
+    function play(note) { // TODO: Move this logic into key component
       var osc = WebAudioAPI.newOscillator(note),
         attack = AttackDecayService.attack,
         decay = AttackDecayService.decay;
