@@ -1,11 +1,11 @@
 <section id="keyboard" class="keyboard">
 
-  <key id="{{note}}" class="white-key" ng-repeat="note in vm.keys.white" ng-mousedown="vm.play(note)"
-    color="white" note="note" ng-mouseenter="vm.playIfMouseDown(note)">
+  <key id="{{note}}" class="white-key" ng-repeat="note in vm.keys.white" color="white"
+      note="note">
   </key>
 
-  <key id="{{note}}" class="black-key" ng-repeat="note in vm.keys.black" ng-mousedown="vm.play(note)"
-    color="black" note="note" ng-mouseenter="vm.playIfMouseDown(note)">
+  <key id="{{note}}" class="black-key" ng-repeat="note in vm.keys.black" color="black"
+    note="note">
   </key>
 
 </section>

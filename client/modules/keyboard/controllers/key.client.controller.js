@@ -2,26 +2,32 @@
   angular.module('Keyboard')
     .controller('KeyController', KeyController);
 
-  KeyController.$inject = ['$scope', '$element', '$timeout', 'Mouse', 'AttackDecayService'];
+  KeyController.$inject = ['$scope', '$element', '$timeout', 'Mouse', 'AttackDecayService', 'WebAudioAPI'];
 
-  function KeyController($scope, $element, $timeout, Mouse, AttackDecayService) {
-    var vm = this;
+  function KeyController($scope, $element, $timeout, Mouse, AttackDecayService, WebAudioAPI) {
+    var vm = this,
+      context = WebAudioAPI.context;
+
+    vm.$onInit = function() {
+      if (vm.note === 'c4') {
+        $scope.$emit('scrollToKey', vm.note);
+      }
+
+      $timeout(function() {
+        if (vm.color === 'white') return;
+        var naturalName = $element[0].id.replace('#', ''),
+          natural = document.getElementById(naturalName),
+          whiteKey = angular.element(natural);
+
+        whiteKey.after($element);
+      });
+    };
 
     // *************
     // Click Handlers
     // *************
-    $element.on('mousedown', function() {
-      Mouse.down = true;
-      document.addEventListener('mouseup', function mouseUp() {
-        stopNote();
-        Mouse.down = false;
-        document.removeEventListener('mouseup', mouseUp);
-      });
-    });
 
-    $element.on('mouseleave', stopNote);
-    $element.on('drag', stopNote);
-    $element.on('mouseup', stopNote);
+    $element.on('mousedown', playNote);
 
     $element.on('mouseenter', function() {
       $element.addClass('hover-key');
@@ -34,46 +40,52 @@
     // **************
     // Touch Handlers
     // **************
+
     $element.on('touchstart', function(ev) {
       ev.preventDefault();
-      $element.css('transition', AttackDecayService.attack / 1000 + 's');
-      $element.addClass('play-key');
-      vm.keyboard.play(vm.note);
+      playNote();
     });
 
-    $element.on('touchmove', function(ev) {
-      ev.preventDefault();
-    });
+    // *****************
+    // Hoisted functions
+    // *****************
+    function stopNote(osc) {
+      var attack = AttackDecayService.attack,
+        decay = AttackDecayService.decay;
 
-    $element.on('touchend', function(ev) {
-      ev.preventDefault();
-      $element.css('transition', AttackDecayService.decay / 1000 + 's');
+      osc.gainNode.gain.cancelScheduledValues(context.currentTime - (attack / 1000));
+      osc.gainNode.gain.linearRampToValueAtTime(0, context.currentTime + (decay / 1000));
+
+      $element.css('transition', decay / 1000 + 's');
+      $element.css('background-color', vm.color === 'white' ? 'white' : 'black');
+      // $element.removeClass('play-key');
 
       $timeout(function() {
         $element.css('transition', '0s');
-      }, AttackDecayService.decay);
-      $element.removeClass('play-key');
-      stopNote();
-    });
-
-    $timeout(function() {
-      if (vm.color === 'white') return;
-      var naturalName = $element[0].id.replace('#', ''),
-        natural = document.getElementById(naturalName),
-        whiteKey = angular.element(natural);
-
-      whiteKey.after($element);
-    });
-
-    vm.$onInit = function() {
-      if (vm.note === 'c4') {
-        $scope.$emit('scrollToKey', vm.note);
-      }
-    };
-
-    // hoisted functions
-    function stopNote() {
-      $scope.$emit('stop', vm.note);
+        osc.stop();
+      }, decay);
     }
+
+    function playNote() {
+      var osc = WebAudioAPI.newOscillator(vm.note),
+        attack = AttackDecayService.attack,
+        decay = AttackDecayService.decay;
+
+      $element.css('transition', attack / 1000 + 's');
+      $element.css('background-color', randomColor());
+      // $element.addClass('play-key');
+
+      osc.gainNode.gain.linearRampToValueAtTime(1, context.currentTime + attack / 1000);
+
+      $element.on('mouseup', stop);
+      $element.on('mouseleave', stop);
+      $element.on('touchend', stop);
+      $element.on('touchmove', stop);
+
+      function stop() { // <-- hoisted
+        stopNote(osc);
+      }
+    }
+
   }
 }());
