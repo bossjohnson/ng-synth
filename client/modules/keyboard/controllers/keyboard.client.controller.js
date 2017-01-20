@@ -9,7 +9,6 @@
       context = WebAudioAPI.context;
 
     vm.keys = Keyboard.keys;
-    vm.playIfMouseDown = playIfMouseDown;
 
     $scope.$on('scrollToKey', function(ev, note) {
       $timeout(function() {
